@@ -12,23 +12,25 @@
 //
 
 // CS537: Parse the new arguments too
-void getargs(int *port, int argc, char *argv[])
+void getargs(int *port, int *numworkers, int *bufsize, int argc, char *argv[])
 {
-    if (argc != 2) {
-	fprintf(stderr, "Usage: %s <port>\n", argv[0]);
+    if (argc != 4) {
+	fprintf(stderr, "Usage: %s <port> <# worker threads> <buffer size>\n", argv[0]);
 	exit(1);
-    }
+    } 
     *port = atoi(argv[1]);
+    *numworkers = atoi(argv[2]);
+    *bufsize = atoi(argv[3]);
 }
 
 
 int main(int argc, char *argv[])
 {
-    int listenfd, connfd, port, clientlen;
+  int listenfd, connfd, port, clientlen, numworkers, bufsize;
     struct sockaddr_in clientaddr;
 
-    getargs(&port, argc, argv);
-
+    getargs(&port, &numworkers, &bufsize, argc, argv);
+    
     // 
     // CS537: Create some threads...
     //
