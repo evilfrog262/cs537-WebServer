@@ -557,4 +557,35 @@ int Open_listenfd(int port)
     return rc;
 }
 
+/****************************************
+ * Functions we wrote
+ *****************************************/
+/*void *consumer(void *arg) {
+  while(1) {
+    pthread_mutex_lock(&m);
+    while(numrequests == 0) {
+      pthread_cond_wait(&fill, &m);
+    }
+    // service request
+    int connfd = getbuff();
+    requestHandle(connfd);
+    fprintf(stderr, "servicing request\n");
+    pthread_cond_signal(&empty);
+    pthread_mutex_unlock(&m);
+  }
+}
+
+void fill_buff(int connfd) {
+  buffer[fillptr] = connfd;
+  fillptr = (fillptr + 1) % bufsize;
+  numrequests++;
+}
+
+int get_buff() {
+  int tmp = buffer[useptr];
+  useptr = (useptr + 1) % bufsize;
+  numrequests--;
+  return tmp;
+}*/
+
 
