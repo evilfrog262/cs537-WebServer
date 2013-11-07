@@ -408,6 +408,7 @@ ssize_t rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen)
         } else
             return -1;    /* error */
     }
+    //fprintf(stderr, "out of for loop\n");
     *bufp = 0;
     return n;
 }

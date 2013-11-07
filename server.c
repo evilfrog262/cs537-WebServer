@@ -63,6 +63,7 @@ int main(int argc, char *argv[])
     while (1) {
 	clientlen = sizeof(clientaddr);
 	connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
+
 	pthread_mutex_lock(&m);
 	//fprintf(stderr, "acquired lock\n");
 	while(numrequests == bufsize) {
@@ -101,6 +102,23 @@ int get_buff() {
   useptr = (useptr + 1) % bufsize;
   numrequests--;
   return tmp;
+}
+
+int get_buff2() {
+  // always grab from front of list
+  int tmp = buffer[0];
+  int i;
+  // shift all remaining values left
+  for (i = 1; i < bufsize; i++) {
+    buffer[i - 1] = buffer[i];
+  }
+  buffer[bufsize - 1] = -1;
+  numrequests--;
+  return tmp;
+}
+
+void fill_buff2(int connfd) {
+  ;
 }
 
 void *consumer(void *arg) {
