@@ -121,4 +121,24 @@ int open_listenfd(int portno);
 int Open_clientfd(char *hostname, int port);
 int Open_listenfd(int port); 
 
+
+typedef struct __buff_t{
+    int fd; //connection file descriptor
+    struct __buff_t *next; //next node
+    struct __buff_t *previous; //previous node
+    int filesize;
+    int filenamesize;
+
+
+    int is_static;
+    struct stat sbuf;
+    char* buf;
+    char* method;
+    char* uri; 
+    char* version;
+    char* filename; 
+    char* cgiargs;
+    rio_t rio;
+} buff_t;
+
 #endif /* __CSAPP_H__ */
