@@ -26,25 +26,33 @@ buff_t* tail = NULL; //end of list
 
 
 void fill_buff(buff_t* node);
+void fill_buff2(buff_t* node);
+void fill_buff3(buff_t* node);
 buff_t* get_buff();
 void *consumer(void *arg);
 
 // CS537: Parse the new arguments too
-void getargs(int *port, int *numworkers, int *bufsize, int argc, char *argv[])
+void getargs(int *port, int *numworkers, int *bufsize, char **sched, int argc, char *argv[])
 {
-    if (argc != 4) {
-        fprintf(stderr, "Usage: %s <port> <# worker threads> <buffer size>\n", argv[0]);
+    if (argc != 5) {
+        fprintf(stderr, "Usage: %s <port> <# worker threads> <buffer size> <scheduling algorithm>\n", argv[0]);
         exit(1);
     }
     *port = atoi(argv[1]);
     *numworkers = atoi(argv[2]);
     *bufsize = atoi(argv[3]);
+    if ((strcmp(argv[4], "FIFO") != 0) && (strcmp(argv[4], "SFNF") != 0) && (strcmp(argv[4], "SFF") != 0)) {
+      fprintf(stderr, "Use valid scheduling algorithm: FIFO, SFNF, SFF\n");
+      exit(1);
+    }
+    *sched = argv[4];
 }
 
 
 int main(int argc, char *argv[])
 {
     int listenfd, connfd, port, clientlen, numworkers;
+    char *sched;
     struct sockaddr_in clientaddr;
     
     int is_static;
@@ -57,7 +65,8 @@ int main(int argc, char *argv[])
     pthread_cond_init(&empty, NULL); // CV for master/producer to wait on
     pthread_cond_init(&fill, NULL); // CV for workers/consumers to wait on
     
-    getargs(&port, &numworkers, &bufsize, argc, argv);
+    getargs(&port, &numworkers, &bufsize, &sched, argc, argv);
+    fprintf(stderr, "%s\n", sched);
     
     //
     // CS537: Create some threads...
@@ -116,7 +125,14 @@ int main(int argc, char *argv[])
         }
         //fprintf(stderr, "accepted\n");
         //fprintf(stderr, "connfd: %d\n", connfd);
-        fill_buff(newNode);
+	if (strcmp(sched, "FIFO") == 0) {
+	  fill_buff(newNode);
+	} else if (strcmp(sched, "SFNF") == 0) {
+	  fill_buff2(newNode);
+	} else if (strcmp(sched, "SFF") == 0) {
+	  fill_buff3(newNode);
+	} 
+        
         //fprintf(stderr, "done filling\n");
         //requestHandle(connfd);
         pthread_cond_signal(&fill);
@@ -152,8 +168,10 @@ void fill_buff(buff_t *node) { //First In first out
 }
 
 void fill_buff2(buff_t *node){ //smallest filename first
+    numrequests++;
     if(buffer == NULL){
         buffer = node;
+	//fprintf(stderr, "added to front of list\n");
     }
     else{
         buff_t* tmp = buffer;
@@ -182,11 +200,11 @@ void fill_buff2(buff_t *node){ //smallest filename first
             }
         }
     }
-    
 }
 
 
 void fill_buff3(buff_t *node){ //smallest file first
+    numrequests++;
     if(buffer == NULL){
         buffer = node;
     }
