@@ -1,0 +1,140 @@
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to clean project using make clean
+make clean
+rm -f server.o request.o cs537.o client.o server client output.cgi
+Trying to build project using make
+make
+gcc -g -Wall -o server.o -c server.c
+gcc -g -Wall -o request.o -c request.c
+gcc -g -Wall -o cs537.o -c cs537.c
+gcc -g -Wall -o server server.o request.o cs537.o -lpthread 
+gcc -g -Wall -o client.o -c client.c
+gcc -g -Wall -o client client.o cs537.o
+gcc -g -Wall -o output.cgi output.c
+
+
+test build PASSED
+ (build project using make)
+
+
+**********************************************************************
+
+Test locks2
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 8311
+/tmp/tmpocht7k/p/server 8311 32 64 FIFO
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2012510
+freeing: 0x2012510
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2012510
+freeing: 0x2012510
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./home.html
+got: 0x2012510
+freeing: 0x2012510
+filename: ./home.html
+got: 0x2010410
+freeing: 0x2010410
+filename: ./output.cgi
+got: 0x2010410
+freeing: 0x2010410
+filename: ./output.cgi
+got: 0x2010410
+freeing: 0x2010410
+filename: ./output.cgi
+got: 0x2010410
+freeing: 0x2010410
+filename: ./output.cgi
+got: 0x2012510
+freeing: 0x2012510
+filename: ./output.cgi
+got: 0x2014610
+freeing: 0x2014610
+filename: ./output.cgi
+got: 0x2016710
+freeing: 0x2016710
+filename: ./output.cgi
+got: 0x2018810
+freeing: 0x2018810
+filename: ./output.cgi
+got: 0x201a910
+freeing: 0x201a910
+filename: ./output.cgi
+got: 0x201ca10
+freeing: 0x201ca10
+filename: ./output.cgi
+got: 0x201eb10
+freeing: 0x201eb10
+filename: ./output.cgi
+got: 0x2020c10
+freeing: 0x2020c10
+filename: ./output.cgi
+got: 0x2022d10
+freeing: 0x2022d10
+filename: ./output.cgi
+
+
+test locks2 FAILED
+ (many concurrent requests to test locking)
+ User interrupted test
+
+Skipped 0 tests.
+To keep testing after failing a test, use flag '-c' or '--continue'

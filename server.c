@@ -17,7 +17,7 @@
 pthread_mutex_t m;
 pthread_cond_t empty, fill;
 int numrequests = 0;
-int fillptr = 0;
+//int fillptr = 0;
 //int useptr = 0;
 int bufsize;
 buff_t* buffer = NULL; //head of list
@@ -61,12 +61,14 @@ int main(int argc, char *argv[])
     char filename[MAXLINE], cgiargs[MAXLINE];
     rio_t rio;
     
+
+
     pthread_mutex_init(&m, NULL); // lock for producer and consumer loops
     pthread_cond_init(&empty, NULL); // CV for master/producer to wait on
     pthread_cond_init(&fill, NULL); // CV for workers/consumers to wait on
     
     getargs(&port, &numworkers, &bufsize, &sched, argc, argv);
-    fprintf(stderr, "%s\n", sched);
+    //fprintf(stderr, "%s\n", sched);
     
     //
     // CS537: Create some threads...
@@ -94,16 +96,15 @@ int main(int argc, char *argv[])
         Rio_readinitb(&rio, newNode->fd);
         Rio_readlineb(&rio, buf, MAXLINE);
         sscanf(buf, "%s %s %s", method, uri, version);
-        //printf("AFTER SCAN: %s %s %s\n", method, uri, version);
+
         
         requestReadhdrs(&rio);
         
         is_static = requestParseURI(uri, filename, cgiargs);
-        //printf("AFTER PARSE: uri->%s filename->%s cgiargs->%s\n",uri,filename,cgiargs);
+
         
         newNode->buf = buf;
         newNode->rio = rio;
-        //fprintf(stderr,"new buf: %s\n",newNode->buf);
         newNode->method = method;
         newNode->uri = uri;
         newNode->version= version;
@@ -114,17 +115,13 @@ int main(int argc, char *argv[])
         newNode->filesize = sbuf.st_size;
         
         newNode->cgiargs = cgiargs;
-        printf("%d\n",newNode->filesize);
         
         
         
         
         while(numrequests == bufsize) {
-            //fprintf(stderr, "producer waiting\n");
             pthread_cond_wait(&empty, &m);
         }
-        //fprintf(stderr, "accepted\n");
-        //fprintf(stderr, "connfd: %d\n", connfd);
 	if (strcmp(sched, "FIFO") == 0) {
 	  fill_buff(newNode);
 	} else if (strcmp(sched, "SFNF") == 0) {
@@ -137,7 +134,7 @@ int main(int argc, char *argv[])
         //requestHandle(connfd);
         pthread_cond_signal(&fill);
         pthread_mutex_unlock(&m);
-        fprintf(stderr, "producer released lock\n");
+
         //fprintf(stderr, "numrequests: %d\n", numrequests);
         //
         // CS537: In general, don't handle the request in the main thread.
@@ -152,25 +149,33 @@ int main(int argc, char *argv[])
 }
 
 void fill_buff(buff_t *node) { //First In first out
-    fprintf(stderr,"buffer fill: %p\n",buffer);
-    if(buffer ==NULL){
+    numrequests++;
+    //fprintf(stderr,"head before fill: %p\n",buffer);
+    if(buffer == NULL){
+	//fprintf(stderr,"Head is pointing to null\n");
         buffer = node;
 	tail = node;
+	buffer->next=NULL;
+        buffer->previous = NULL;
     }
     else{
         buff_t* tmp = tail;
 	tmp->next = node;
 	tail = node;
-	tail->previous = tmp;	
+	tail->previous = tmp;
+	tail->next = NULL;	
     }
-    fprintf(stderr,"buffer after fill: %p\n",buffer);
-    numrequests++;
+    //fprintf(stderr,"put: %p into buffer\n",node);
+    //fprintf(stderr,"head after fill: %p\n",buffer);
+    
 }
 
 void fill_buff2(buff_t *node){ //smallest filename first
     numrequests++;
     if(buffer == NULL){
         buffer = node;
+	node->next = NULL;
+	node->previous=NULL;
 	//fprintf(stderr, "added to front of list\n");
     }
     else{
@@ -181,6 +186,7 @@ void fill_buff2(buff_t *node){ //smallest filename first
                     buffer=node;
                     buffer->next = tmp;
                     tmp->previous = buffer;
+		    buffer->previous=NULL;
                     break;
                 }
                 else{
@@ -194,6 +200,8 @@ void fill_buff2(buff_t *node){ //smallest filename first
             else{
                 if(tmp->next == NULL){//if at end of list
                     tmp->next = node;
+		    node->next=NULL;
+		    node->previous=tmp;
                     break;
                 }
                 tmp = tmp->next;
@@ -205,8 +213,11 @@ void fill_buff2(buff_t *node){ //smallest filename first
 
 void fill_buff3(buff_t *node){ //smallest file first
     numrequests++;
+    fprintf(stderr,"placing: %s into buffer\n",node->filename);
     if(buffer == NULL){
         buffer = node;
+	node->next = NULL;
+	node->previous=NULL;
     }
     else{
         buff_t* tmp = buffer;
@@ -216,6 +227,7 @@ void fill_buff3(buff_t *node){ //smallest file first
                     buffer=node;
                     buffer->next = tmp;
                     tmp->previous = buffer;
+		    buffer->previous=NULL;
                     break;
                 }
                 else{
@@ -229,6 +241,8 @@ void fill_buff3(buff_t *node){ //smallest file first
             else{
                 if(tmp->next == NULL){//if at end of list
                     tmp->next = node;
+		    node->next=NULL;
+		    node->previous=tmp;
                     break;
                 }
                 tmp = tmp->next;
@@ -240,12 +254,13 @@ void fill_buff3(buff_t *node){ //smallest file first
 
 
 buff_t* get_buff() {
+    numrequests--;
     buff_t* tmp = buffer;
-    fprintf(stderr,"buffer get: %p\n",buffer);
+    //fprintf(stderr,"buffer get: %p\n",buffer);
     //int tmpfd = (int)tmp->fd;
     buffer = buffer->next;
-    fprintf(stderr,"buffer after get: %p\n",buffer);
-    numrequests--;
+    //fprintf(stderr,"buffer after get: %p\n",buffer);
+    
     return tmp;
 }
 
@@ -253,23 +268,18 @@ buff_t* get_buff() {
 void *consumer(void *arg) {
     while(1) {
         pthread_mutex_lock(&m);
-        
         while(numrequests == 0) {
-            //fprintf(stderr, "numrequests: %d\n", numrequests);
             pthread_cond_wait(&fill, &m);
-            //fprintf(stderr, "return from wait\n");
-            //fprintf(stderr, "numrequests2: %d\n", numrequests);
-            
         }
-        //fprintf(stderr, "consumer got lock\n");
         
         // service request
-        buff_t* connfd = get_buff();
-        fprintf(stderr, "connfd: %d\n", connfd->fd);
-        fprintf(stderr,"connfd->filename: %s\n",connfd->filename);
-        requestHandle(connfd);
-        Close(connfd->fd);
-        free(connfd);
+        buff_t* requestbuff = get_buff();
+        requestHandle(requestbuff);
+	fprintf(stderr,"got: %p\n",requestbuff);
+        Close(requestbuff->fd);
+	fprintf(stderr,"freeing: %p\n",requestbuff);
+	fprintf(stderr,"filename: %s\n",requestbuff->filename);
+        free(requestbuff);
         //fprintf(stderr, "servicing request\n");
         pthread_cond_signal(&empty);
         pthread_mutex_unlock(&m);
