@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
         clientlen = sizeof(clientaddr);
         connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
         
-        pthread_mutex_lock(&m);
+        //pthread_mutex_lock(&m);
         buff_t* newNode = malloc(sizeof(buff_t));
         newNode->fd = connfd;
         
@@ -105,8 +105,9 @@ int main(int argc, char *argv[])
         newNode->rio = rio;
         newNode->method = method;
         newNode->uri = uri;
-        newNode->version= version;pthread_cond_signal(&empty);
-        pthread_mutex_unlock(&m);
+        newNode->version= version;
+	//pthread_cond_signal(&empty);
+        //pthread_mutex_unlock(&m);
         newNode->is_static = is_static;
         newNode->filename = filename;
         newNode->filenamesize = strlen(filename);
@@ -116,7 +117,7 @@ int main(int argc, char *argv[])
         newNode->cgiargs = cgiargs;
         
         
-        
+        pthread_mutex_lock(&m);
         
         while(numrequests == bufsize) {
             pthread_cond_wait(&empty, &m);
