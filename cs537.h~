@@ -132,8 +132,12 @@ typedef struct __buff_t{
 
     int is_static;
     struct stat sbuf;
-    char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
-    char filename[MAXLINE], cgiargs[MAXLINE];
+    char* buf;
+    char* method;
+    char* uri; 
+    char* version;
+    char* filename; 
+    char* cgiargs;
     rio_t rio;
 } buff_t;
 

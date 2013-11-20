@@ -25,24 +25,350 @@ test build PASSED
 
 **********************************************************************
 
+Test basic
+check if the webserver can serve requests
+
+**********************************************************************
+Starting server on port 8674
+/tmp/tmpT59Ar2/p/server 8674 1 1 FIFO
+Connected
+Requested
+Got response
+Read response
+
+
+test basic PASSED
+ (check if the webserver can serve requests)
+
+
+**********************************************************************
+
+Test nobusywait
+test to make sure you are not busy-waiting
+
+**********************************************************************
+Starting server on port 8902
+/tmp/tmpT59Ar2/p/server 8902 10 1 FIFO
+idle server spent 0 seconds running on CPU
+
+
+test nobusywait PASSED
+ (test to make sure you are not busy-waiting)
+
+
+**********************************************************************
+
+Test fifo
+FIFO with dynamic requests and one thread
+
+**********************************************************************
+Starting server on port 5176
+/tmp/tmpT59Ar2/p/server 5176 1 1 FIFO
+
+
+test fifo PASSED
+ (FIFO with dynamic requests and one thread)
+
+
+**********************************************************************
+
+Test sff
+Smallest file first with dynamic requests and one thread
+
+**********************************************************************
+Starting server on port 7169
+/tmp/tmpT59Ar2/p/server 7169 1 10 SFF
+
+
+test sff PASSED
+ (Smallest file first with dynamic requests and one thread)
+
+
+**********************************************************************
+
+Test sff2
+Smallest file first with dynamic requests
+
+**********************************************************************
+Starting server on port 6135
+/tmp/tmpT59Ar2/p/server 6135 2 10 SFF
+
+
+test sff2 PASSED
+ (Smallest file first with dynamic requests)
+
+
+**********************************************************************
+
+Test sfnf
+Shortest file name first with dynamic requests
+
+**********************************************************************
+Starting server on port 9663
+/tmp/tmpT59Ar2/p/server 9663 2 10 SFNF
+
+
+test sfnf PASSED
+ (Shortest file name first with dynamic requests)
+
+
+**********************************************************************
+
+Test pool
+check if using a fixed size thread pool
+
+**********************************************************************
+Starting server on port 7314
+/tmp/tmpT59Ar2/p/server 7314 2 8 FIFO
+
+
+test pool PASSED
+ (check if using a fixed size thread pool)
+
+
+**********************************************************************
+
+Test pool2
+check if using a fixed size thread pool
+
+**********************************************************************
+Starting server on port 9350
+/tmp/tmpT59Ar2/p/server 9350 3 8 FIFO
+
+
+test pool2 PASSED
+ (check if using a fixed size thread pool)
+
+
+**********************************************************************
+
+Test locks
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 6654
+/tmp/tmpT59Ar2/p/server 6654 8 16 FIFO
+
+
+test locks PASSED
+ (many concurrent requests to test locking)
+
+
+**********************************************************************
+
+Test locks2
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 5268
+/tmp/tmpT59Ar2/p/server 5268 32 64 FIFO
+
+
+test locks2 PASSED
+ (many concurrent requests to test locking)
+
+
+**********************************************************************
+
+Test locks3
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 6997
+/tmp/tmpT59Ar2/p/server 6997 64 128 SFF
+
+
+test locks3 FAILED
+ (many concurrent requests to test locking)
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: 
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+
+**********************************************************************
+
 Test locks4
 many concurrent requests to test locking
 
 **********************************************************************
-Starting server on port 6058
-/tmp/tmp6HLsyy/p/server 6058 25 27 FIFO
+Starting server on port 9010
+/tmp/tmpT59Ar2/p/server 9010 25 27 FIFO
 
 
 test locks4 PASSED
  (many concurrent requests to test locking)
+
+
+**********************************************************************
+
+Test fewer
+fewer buffers than threads
+
+**********************************************************************
+Starting server on port 6180
+/tmp/tmpT59Ar2/p/server 6180 16 8 FIFO
+
+
+test fewer PASSED
+ (fewer buffers than threads)
+
+
+**********************************************************************
+
+Test fewer2
+fewer buffers than threads
+
+**********************************************************************
+Starting server on port 6081
+/tmp/tmpT59Ar2/p/server 6081 32 1 FIFO
+
+
+test fewer2 PASSED
+ (fewer buffers than threads)
 
 **********************************************************************
 Summary:
 test build PASSED
  (build project using make)
 
+test basic PASSED
+ (check if the webserver can serve requests)
+
+test nobusywait PASSED
+ (test to make sure you are not busy-waiting)
+
+test fifo PASSED
+ (FIFO with dynamic requests and one thread)
+
+test sff PASSED
+ (Smallest file first with dynamic requests and one thread)
+
+test sff2 PASSED
+ (Smallest file first with dynamic requests)
+
+test sfnf PASSED
+ (Shortest file name first with dynamic requests)
+
+test pool PASSED
+ (check if using a fixed size thread pool)
+
+test pool2 PASSED
+ (check if using a fixed size thread pool)
+
+test locks PASSED
+ (many concurrent requests to test locking)
+
+test locks2 PASSED
+ (many concurrent requests to test locking)
+
+test locks3 FAILED
+ (many concurrent requests to test locking)
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: 
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
 test locks4 PASSED
  (many concurrent requests to test locking)
 
-Passed 2 of 2 tests.
-Overall 2 of 2
+test fewer PASSED
+ (fewer buffers than threads)
+
+test fewer2 PASSED
+ (fewer buffers than threads)
+
+Passed 14 of 15 tests.
+Overall 14 of 15

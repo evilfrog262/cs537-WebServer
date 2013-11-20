@@ -149,7 +149,6 @@ void requestServeStatic(int fd, char *filename, int filesize)
 // handle a request
 void requestHandle(buff_t *node)
 {
-   printf("***filename: %s\n",node->filename);
    int fd = node->fd;
    int is_static = node->is_static;
    struct stat sbuf;

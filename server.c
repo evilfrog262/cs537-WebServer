@@ -55,12 +55,7 @@ int main(int argc, char *argv[])
     char *sched;
     struct sockaddr_in clientaddr;
     
-    int is_static;
     struct stat sbuf;
-    char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
-    char filename[MAXLINE], cgiargs[MAXLINE];
-    rio_t rio;
-    
 
 
     pthread_mutex_init(&m, NULL); // lock for producer and consumer loops
@@ -85,39 +80,27 @@ int main(int argc, char *argv[])
     while (1) {
         clientlen = sizeof(clientaddr);
         connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
-        
-        //pthread_mutex_lock(&m);
-        buff_t* newNode = malloc(sizeof(buff_t));
-        newNode->fd = connfd;
-        
-  
-        Rio_readinitb(&rio, newNode->fd);
-        Rio_readlineb(&rio, buf, MAXLINE);
-        sscanf(buf, "%s %s %s", method, uri, version);
-
-        
-        requestReadhdrs(&rio);
-        
-        is_static = requestParseURI(uri, filename, cgiargs);
-
-        
-        newNode->buf = buf;
-        newNode->rio = rio;
-        newNode->method = method;
-        newNode->uri = uri;
-        newNode->version= version;
-	//pthread_cond_signal(&empty);
-        //pthread_mutex_unlock(&m);
-        newNode->is_static = is_static;
-        newNode->filename = filename;
-        newNode->filenamesize = strlen(filename);
-        stat(filename, &sbuf);
-        newNode->filesize = sbuf.st_size;
-        
-        newNode->cgiargs = cgiargs;
-        
-        
         pthread_mutex_lock(&m);
+	buff_t* newNode = malloc(sizeof(buff_t));
+        newNode->fd = connfd;
+        Rio_readinitb(&((*newNode).rio), newNode->fd);
+        Rio_readlineb(&((*newNode).rio), newNode->buf, MAXLINE);
+        sscanf(newNode->buf, "%s %s %s", newNode->method, newNode->uri, newNode->version);
+
+        
+        requestReadhdrs(&((*newNode).rio));
+        
+        newNode->is_static = requestParseURI(newNode->uri, newNode->filename, newNode->cgiargs);
+
+        
+        stat(newNode->filename, &sbuf);
+        newNode->filesize = sbuf.st_size;
+	newNode->filenamesize = strlen(newNode->filename);
+        
+        //newNode->cgiargs = cgiargs;
+        
+        
+        
         
         while(numrequests == bufsize) {
             pthread_cond_wait(&empty, &m);
@@ -188,6 +171,7 @@ void fill_buff2(buff_t *node){ //smallest filename first
                     node->previous= prevTmp;
                     prevTmp->next = node;
                     node->next = tmp;
+		    tmp->previous = node;
 		    break;
                 }
             }
@@ -230,6 +214,7 @@ void fill_buff3(buff_t *node){ //smallest file first
                     node->previous= prevTmp;
                     prevTmp->next = node;
                     node->next = tmp;
+		    tmp->previous = node;
 		    break;
                 }
             }
@@ -240,8 +225,9 @@ void fill_buff3(buff_t *node){ //smallest file first
 		    node->previous=tmp;
                     break;
                 }
-                tmp = tmp->next;
+                
             }
+	  tmp = tmp->next;
         }
     }
     numrequests++;   
@@ -266,7 +252,6 @@ void *consumer(void *arg) {
         
         // service request
         buff_t* requestbuff = get_buff();
-
 	pthread_cond_signal(&empty);
         pthread_mutex_unlock(&m);
         requestHandle(requestbuff);
