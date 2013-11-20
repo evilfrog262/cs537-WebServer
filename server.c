@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     pthread_cond_init(&fill, NULL); // CV for workers/consumers to wait on
     
     getargs(&port, &numworkers, &bufsize, &sched, argc, argv);
-    //fprintf(stderr, "%s\n", sched);
+
     
     //
     // CS537: Create some threads...
@@ -89,10 +89,8 @@ int main(int argc, char *argv[])
         pthread_mutex_lock(&m);
         buff_t* newNode = malloc(sizeof(buff_t));
         newNode->fd = connfd;
-        //fprintf(stderr, "acquired lock\n");
         
-        
-        
+  
         Rio_readinitb(&rio, newNode->fd);
         Rio_readlineb(&rio, buf, MAXLINE);
         sscanf(buf, "%s %s %s", method, uri, version);
@@ -107,7 +105,8 @@ int main(int argc, char *argv[])
         newNode->rio = rio;
         newNode->method = method;
         newNode->uri = uri;
-        newNode->version= version;
+        newNode->version= version;pthread_cond_signal(&empty);
+        pthread_mutex_unlock(&m);
         newNode->is_static = is_static;
         newNode->filename = filename;
         newNode->filenamesize = strlen(filename);
@@ -130,8 +129,6 @@ int main(int argc, char *argv[])
 	  fill_buff3(newNode);
 	} 
         
-        //fprintf(stderr, "done filling\n");
-        //requestHandle(connfd);
         pthread_cond_signal(&fill);
         pthread_mutex_unlock(&m);
 
@@ -149,10 +146,8 @@ int main(int argc, char *argv[])
 }
 
 void fill_buff(buff_t *node) { //First In first out
-    numrequests++;
-    //fprintf(stderr,"head before fill: %p\n",buffer);
+    
     if(buffer == NULL){
-	//fprintf(stderr,"Head is pointing to null\n");
         buffer = node;
 	tail = node;
 	buffer->next=NULL;
@@ -165,13 +160,11 @@ void fill_buff(buff_t *node) { //First In first out
 	tail->previous = tmp;
 	tail->next = NULL;	
     }
-    //fprintf(stderr,"put: %p into buffer\n",node);
-    //fprintf(stderr,"head after fill: %p\n",buffer);
-    
+    numrequests++;
 }
 
 void fill_buff2(buff_t *node){ //smallest filename first
-    numrequests++;
+    
     if(buffer == NULL){
         buffer = node;
 	node->next = NULL;
@@ -208,12 +201,13 @@ void fill_buff2(buff_t *node){ //smallest filename first
             }
         }
     }
+    numrequests++;
 }
 
 
 void fill_buff3(buff_t *node){ //smallest file first
-    numrequests++;
-    fprintf(stderr,"placing: %s into buffer\n",node->filename);
+    
+    //fprintf(stderr,"placing: %s into buffer\n",node->filename);
     if(buffer == NULL){
         buffer = node;
 	node->next = NULL;
@@ -249,18 +243,15 @@ void fill_buff3(buff_t *node){ //smallest file first
             }
         }
     }
-    
+    numrequests++;   
 }
 
 
 buff_t* get_buff() {
-    numrequests--;
-    buff_t* tmp = buffer;
-    //fprintf(stderr,"buffer get: %p\n",buffer);
-    //int tmpfd = (int)tmp->fd;
-    buffer = buffer->next;
-    //fprintf(stderr,"buffer after get: %p\n",buffer);
     
+    buff_t* tmp = buffer;
+    buffer = buffer->next;
+    numrequests--;
     return tmp;
 }
 
@@ -274,15 +265,14 @@ void *consumer(void *arg) {
         
         // service request
         buff_t* requestbuff = get_buff();
-        requestHandle(requestbuff);
-	fprintf(stderr,"got: %p\n",requestbuff);
-        Close(requestbuff->fd);
-	fprintf(stderr,"freeing: %p\n",requestbuff);
-	fprintf(stderr,"filename: %s\n",requestbuff->filename);
-        free(requestbuff);
-        //fprintf(stderr, "servicing request\n");
-        pthread_cond_signal(&empty);
+
+	pthread_cond_signal(&empty);
         pthread_mutex_unlock(&m);
+        requestHandle(requestbuff);
+        Close(requestbuff->fd);
+        free(requestbuff);
+
+        
         
     }
 }

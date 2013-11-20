@@ -25,116 +25,6044 @@ test build PASSED
 
 **********************************************************************
 
+Test basic
+check if the webserver can serve requests
+
+**********************************************************************
+Starting server on port 9030
+/tmp/tmpQGkuZw/p/server 9030 1 1 FIFO
+Connected
+Requested
+Got response
+Read response
+
+
+test basic PASSED
+ (check if the webserver can serve requests)
+
+
+**********************************************************************
+
+Test nobusywait
+test to make sure you are not busy-waiting
+
+**********************************************************************
+Starting server on port 7380
+/tmp/tmpQGkuZw/p/server 7380 10 1 FIFO
+idle server spent 0 seconds running on CPU
+
+
+test nobusywait PASSED
+ (test to make sure you are not busy-waiting)
+
+
+**********************************************************************
+
+Test fifo
+FIFO with dynamic requests and one thread
+
+**********************************************************************
+Starting server on port 8086
+/tmp/tmpQGkuZw/p/server 8086 1 1 FIFO
+
+
+test fifo PASSED
+ (FIFO with dynamic requests and one thread)
+
+
+**********************************************************************
+
+Test sff
+Smallest file first with dynamic requests and one thread
+
+**********************************************************************
+Starting server on port 6087
+/tmp/tmpQGkuZw/p/server 6087 1 10 SFF
+
+
+test sff PASSED
+ (Smallest file first with dynamic requests and one thread)
+
+
+**********************************************************************
+
+Test sff2
+Smallest file first with dynamic requests
+
+**********************************************************************
+Starting server on port 7066
+/tmp/tmpQGkuZw/p/server 7066 2 10 SFF
+
+
+test sff2 PASSED
+ (Smallest file first with dynamic requests)
+
+
+**********************************************************************
+
+Test sfnf
+Shortest file name first with dynamic requests
+
+**********************************************************************
+Starting server on port 9489
+/tmp/tmpQGkuZw/p/server 9489 2 10 SFNF
+
+
+test sfnf PASSED
+ (Shortest file name first with dynamic requests)
+
+
+**********************************************************************
+
+Test pool
+check if using a fixed size thread pool
+
+**********************************************************************
+Starting server on port 7024
+/tmp/tmpQGkuZw/p/server 7024 2 8 FIFO
+
+
+test pool PASSED
+ (check if using a fixed size thread pool)
+
+
+**********************************************************************
+
+Test pool2
+check if using a fixed size thread pool
+
+**********************************************************************
+Starting server on port 5441
+/tmp/tmpQGkuZw/p/server 5441 3 8 FIFO
+
+
+test pool2 PASSED
+ (check if using a fixed size thread pool)
+
+
+**********************************************************************
+
+Test locks
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 9809
+/tmp/tmpQGkuZw/p/server 9809 8 16 FIFO
+Execve error: Permission denied
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+***filename: ./home.html
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-TExecve error: Permission denied
+ype: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+***filename: ./output.cgi
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+***filename: ./home.html
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: ForbiddenExecve error: Permission denied
+
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not ruExecve error: Permission denied
+n this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+***filename: ./home.html
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.htmExecve error: Permission denied
+Execve error: Permission denied
+l
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.hExecve error: Permission denied
+
+
+test locks PASSED
+ (many concurrent requests to test locking)
+
+
+**********************************************************************
+
 Test locks2
 many concurrent requests to test locking
 
 **********************************************************************
-Starting server on port 8311
-/tmp/tmpocht7k/p/server 8311 32 64 FIFO
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2012510
-freeing: 0x2012510
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2012510
-freeing: 0x2012510
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./home.html
-got: 0x2012510
-freeing: 0x2012510
-filename: ./home.html
-got: 0x2010410
-freeing: 0x2010410
-filename: ./output.cgi
-got: 0x2010410
-freeing: 0x2010410
-filename: ./output.cgi
-got: 0x2010410
-freeing: 0x2010410
-filename: ./output.cgi
-got: 0x2010410
-freeing: 0x2010410
-filename: ./output.cgi
-got: 0x2012510
-freeing: 0x2012510
-filename: ./output.cgi
-got: 0x2014610
-freeing: 0x2014610
-filename: ./output.cgi
-got: 0x2016710
-freeing: 0x2016710
-filename: ./output.cgi
-got: 0x2018810
-freeing: 0x2018810
-filename: ./output.cgi
-got: 0x201a910
-freeing: 0x201a910
-filename: ./output.cgi
-got: 0x201ca10
-freeing: 0x201ca10
-filename: ./output.cgi
-got: 0x201eb10
-freeing: 0x201eb10
-filename: ./output.cgi
-got: 0x2020c10
-freeing: 0x2020c10
-filename: ./output.cgi
-got: 0x2022d10
-freeing: 0x2022d10
-filename: ./output.cgi
+Starting server on port 6883
+/tmp/tmpQGkuZw/p/server 6883 32 64 FIFO
+Execve error: Permission denied
+Execve error: Permission denied
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
 
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+***filename: ./output.cgi
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: Execve error: Permission denied
+./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+HTTP/1.0 403 Forbidden
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: .Execve error: Permission denied
+Execve error: Permission denied
+/home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 154
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./output.cgi
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 154
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./output.cgi
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+***filename: ./in
+Content-Type: text/html
+***filename: ./in
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 154
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./output.cgi
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<Execve error: Permission denied
+Execve error: Permission denied
+html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could nExecve error: Permission denied
+ot run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./outpuExecve error: Permission denied
+Execve error: Permission denied
+t.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Type: text/html
+Content-Length: 153
+
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+Execve error: Permission denied
+Execve error: Permission denied
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filenamExecve error: Permission denied
+Execve error: Permission denied
+e: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-TExecve error: Permission denied
+ype: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=Execve error: Permission denied
+fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./in
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+*Execve error: Permission denied
+**filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./in
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 146
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./in
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./in
+***filename: ./in
+*
 
 test locks2 FAILED
  (many concurrent requests to test locking)
- User interrupted test
+ missing body in response
+ missing body in response
 
-Skipped 0 tests.
-To keep testing after failing a test, use flag '-c' or '--continue'
+
+**********************************************************************
+
+Test locks3
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 9430
+/tmp/tmpQGkuZw/p/server 9430 64 128 SFF
+Execve error: Permission denied
+
+
+test locks3 FAILED
+ (many concurrent requests to test locking)
+ missing body in response
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: 
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: 
+
+
+**********************************************************************
+
+Test locks4
+many concurrent requests to test locking
+
+**********************************************************************
+Starting server on port 8961
+/tmp/tmpQGkuZw/p/server 8961 25 27 FIFO
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***
+
+test locks4 FAILED
+ (many concurrent requests to test locking)
+ missing body in response
+ Client failed with error: 
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+
+**********************************************************************
+
+Test fewer
+fewer buffers than threads
+
+**********************************************************************
+Starting server on port 6622
+/tmp/tmpQGkuZw/p/server 6622 16 8 FIFO
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cg
+
+test fewer FAILED
+ (fewer buffers than threads)
+ Client failed with error: 
+ missing body in response
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+
+**********************************************************************
+
+Test fewer2
+fewer buffers than threads
+
+**********************************************************************
+Starting server on port 6969
+/tmp/tmpQGkuZw/p/server 6969 32 1 FIFO
+Execve error: Permission denied
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+Execve error: Permission denied
+Execve error: Permission denied
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 153
+
+<html><title>CS537 Error</title><body bgcolor=fffff>
+403: Forbidden
+<p>CS537 Server could not run this CGI program: ./home.html
+<hr>CS537 Web Server
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: Rio_writen error: Bad address
+./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./home.html
+***filename: ./output.cgi
+***filename: ./output.cgi
+***filename: ./output.cgi
+
+
+test fewer2 FAILED
+ (fewer buffers than threads)
+ missing body in response
+ missing body in response
+ Client failed with error: IncompleteRead(4003 bytes read, 5739 more expected)
+ Client failed with error: 
+ Client failed with error: 
+ missing body in response
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+**********************************************************************
+Summary:
+test build PASSED
+ (build project using make)
+
+test basic PASSED
+ (check if the webserver can serve requests)
+
+test nobusywait PASSED
+ (test to make sure you are not busy-waiting)
+
+test fifo PASSED
+ (FIFO with dynamic requests and one thread)
+
+test sff PASSED
+ (Smallest file first with dynamic requests and one thread)
+
+test sff2 PASSED
+ (Smallest file first with dynamic requests)
+
+test sfnf PASSED
+ (Shortest file name first with dynamic requests)
+
+test pool PASSED
+ (check if using a fixed size thread pool)
+
+test pool2 PASSED
+ (check if using a fixed size thread pool)
+
+test locks PASSED
+ (many concurrent requests to test locking)
+
+test locks2 FAILED
+ (many concurrent requests to test locking)
+ missing body in response
+ missing body in response
+
+test locks3 FAILED
+ (many concurrent requests to test locking)
+ missing body in response
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: 
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: 
+
+test locks4 FAILED
+ (many concurrent requests to test locking)
+ missing body in response
+ Client failed with error: 
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+test fewer FAILED
+ (fewer buffers than threads)
+ Client failed with error: 
+ missing body in response
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+test fewer2 FAILED
+ (fewer buffers than threads)
+ missing body in response
+ missing body in response
+ Client failed with error: IncompleteRead(4003 bytes read, 5739 more expected)
+ Client failed with error: 
+ Client failed with error: 
+ missing body in response
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+ Client failed with error: [Errno 104] Connection reset by peer
+
+Passed 10 of 15 tests.
+Overall 10 of 15
